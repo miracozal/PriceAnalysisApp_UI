@@ -1,0 +1,34 @@
+.a101-wrapper {
+    background-image: url('../../../assets/img/homeBackground.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding-bottom: 50px;
+  
+    .brochure-image-wrapper {
+      display: flex;
+      justify-content: center;
+  
+      .brochure-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 90vh;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      }
+    }
+  
+    h2, span {
+      color: white;
+    }
+  
+    .btn {
+      min-width: 100px;
+    }
+  
+    .pagination-controls {
+      gap: 2rem;
+    }
+  }
+  

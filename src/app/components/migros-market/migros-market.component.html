@@ -1,0 +1,37 @@
+<div class="migros-wrapper">
+    <div class="container py-5 text-white">
+      <h2 class="text-center mb-4">Migros Market Ürünleri</h2>
+  
+      <div *ngIf="pagedProducts.length > 0">
+        <div class="row">
+          <div *ngFor="let product of pagedProducts" class="col-md-4 mb-4">
+            <div class="card h-100 shadow">
+              <div class="card-body text-dark">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text text-success"><strong>Fiyat:</strong> {{ product.salePrice }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <nav *ngIf="totalPages > 1" class="pagination-wrapper">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <button class="page-link" (click)="setPage(currentPage - 1)">‹</button>
+            </li>
+            <li *ngFor="let page of pages" class="page-item" [class.active]="page === currentPage">
+              <button class="page-link" (click)="setPage(page)">{{ page }}</button>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <button class="page-link" (click)="setPage(currentPage + 1)">›</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  
+      <div *ngIf="pagedProducts.length === 0" class="text-center mt-4">
+        Ürün verisi bulunamadı veya yükleniyor...
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,42 @@
+<div class="sok-market-wrapper">
+    <div class="container py-5">
+      <h2 class="text-center text-white mb-4">Şok Market Ürünleri</h2>
+  
+      <div class="row">
+        <div *ngFor="let product of pagedProducts" class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <img [src]="product.image" class="card-img-top" [alt]="product.name"
+              style="object-fit: cover; height: 250px;">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text"><strong>Marka:</strong> {{ product.brand }}</p>
+              <p class="card-text text-success"><strong>Fiyat:</strong> {{ product.price }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <nav *ngIf="totalPages > 1" class="pagination-wrapper">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <button class="page-link" (click)="setPage(currentPage - 1)">‹</button>
+          </li>
+          <li *ngFor="let page of pages" class="page-item" [class.active]="page === currentPage">
+            <button class="page-link" (click)="setPage(page)">{{ page }}</button>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <button class="page-link" (click)="setPage(currentPage + 1)">›</button>
+          </li>
+          <li>
+            <app-adsense></app-adsense>
+          </li>
+        </ul>
+      </nav>
+      
+  
+      <div *ngIf="pagedProducts.length === 0" class="text-center text-white mt-4">
+        Ürün bulunamadı veya yükleniyor...
+      </div>
+    </div>
+  </div>
+  

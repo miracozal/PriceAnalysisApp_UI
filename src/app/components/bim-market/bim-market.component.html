@@ -1,0 +1,50 @@
+<div class="bim-wrapper">
+    <div class="container py-5 text-white">
+      <h2 class="text-center mb-4">BİM Market Ürünleri</h2>
+  
+      <ul class="nav nav-tabs justify-content-center mb-4 border-0">
+        <li class="nav-item" *ngFor="let date of dates">
+          <button
+            class="nav-link"
+            [ngClass]="{ active: date === selectedDate }"
+            (click)="selectDate(date)">
+            {{ date }}
+          </button>
+        </li>
+      </ul>
+  
+      <div *ngIf="pagedProducts.length > 0">
+        <div class="row">
+          <div *ngFor="let product of pagedProducts" class="col-md-4 mb-4">
+            <div class="card h-100 shadow">
+              <div class="card-body text-dark">
+                <h5 class="card-title">{{ product['Ürün'] }}</h5>
+                <p class="card-text"><strong>Marka:</strong> {{ product['Marka'] }}</p>
+                <p class="card-text"><strong>Gramaj:</strong> {{ product['Gramaj'] }}</p>
+                <p class="card-text text-success"><strong>Fiyat:</strong> {{ product['Fiyat'] }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <nav *ngIf="totalPages > 1" class="pagination-wrapper">
+            <ul class="pagination justify-content-center">
+              <li class="page-item" [class.disabled]="currentPage === 1">
+                <button class="page-link" (click)="setPage(currentPage - 1)">‹</button>
+              </li>
+              <li *ngFor="let page of pages" class="page-item" [class.active]="page === currentPage">
+                <button class="page-link" (click)="setPage(page)">{{ page }}</button>
+              </li>
+              <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <button class="page-link" (click)="setPage(currentPage + 1)">›</button>
+              </li>
+            </ul>
+          </nav>
+      </div>
+  
+      <div *ngIf="pagedProducts.length === 0" class="text-center mt-4">
+        Bu tarihe ait ürün bulunamadı.
+      </div>
+    </div>
+  </div>
+  
