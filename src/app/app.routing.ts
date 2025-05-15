@@ -12,6 +12,8 @@ import { SokMarketComponent } from './components/sok-market/sok-market.component
 import { A101MarketComponent } from './components/a101-market/a101-market.component';
 import { BimMarketComponent } from './components/bim-market/bim-market.component';
 import { MigrosMarketComponent } from './components/migros-market/migros-market.component';
+import { MigrosUrunAraComponent } from './components/migros-urun-ara/migros-urun-ara.component';
+import { TrendyolProductsComponent } from './components/trendyol-products/trendyol-products.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,7 +25,9 @@ const routes: Routes =[
     { path: 'sok-market',       component: SokMarketComponent },
     { path: 'a101-market',      component: A101MarketComponent },
     {path: 'bim-market',        component: BimMarketComponent},
-    {path: 'migros-market',     component: MigrosMarketComponent}
+    {path: 'migros-market',     component: MigrosMarketComponent},
+    {path: 'migros-urun-ara',     component: MigrosUrunAraComponent},
+        {path: 'trendyol',     component: TrendyolProductsComponent},
 
   ];
 

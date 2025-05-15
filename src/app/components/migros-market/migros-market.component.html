@@ -1,19 +1,29 @@
 <div class="migros-wrapper">
-    <div class="container py-5 text-white">
-      <h2 class="text-center mb-4">Migros Market Ürünleri</h2>
-  
+  <div class="container py-5 text-white">
+    <h2 class="text-center mb-4">Migros Market Ürünleri</h2>
+
+    <div *ngIf="isLoading" class="text-center my-5">
+      <div class="spinner-border text-light" role="status"></div>
+      <p class="mt-3">Yükleniyor...</p>
+    </div>
+
+    <div *ngIf="hasError && !isLoading" class="text-center text-danger mt-4">
+      Ürün verisi alınırken bir hata oluştu.
+    </div>
+
+    <ng-container *ngIf="!isLoading && !hasError">
       <div *ngIf="pagedProducts.length > 0">
         <div class="row">
           <div *ngFor="let product of pagedProducts" class="col-md-4 mb-4">
             <div class="card h-100 shadow">
               <div class="card-body text-dark">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text text-success"><strong>Fiyat:</strong> {{ product.salePrice }}</p>
+                <h5 class="card-title">{{ product.Name }}</h5>
+                <p class="card-text text-success"><strong>Fiyat:</strong> {{ product.Price }}</p>
               </div>
             </div>
           </div>
         </div>
-  
+
         <nav *ngIf="totalPages > 1" class="pagination-wrapper">
           <ul class="pagination justify-content-center">
             <li class="page-item" [class.disabled]="currentPage === 1">
@@ -28,10 +38,10 @@
           </ul>
         </nav>
       </div>
-  
+
       <div *ngIf="pagedProducts.length === 0" class="text-center mt-4">
-        Ürün verisi bulunamadı veya yükleniyor...
+        Ürün bulunamadı.
       </div>
-    </div>
+    </ng-container>
   </div>
-  
+</div>

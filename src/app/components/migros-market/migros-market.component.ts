@@ -12,17 +12,28 @@ export class MigrosMarketComponent implements OnInit {
   pagedProducts: any[] = [];
   currentPage = 1;
   pageSize = 25;
+  isLoading = false;
+  hasError = false;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     const url = `${environment.apiUrl}/WebReader/GetProductInfo/get-migros`;
+
     this.http.get<any[]>(url).subscribe({
       next: (res) => {
         this.allProducts = res;
         this.setPage(1);
+        this.hasError = false;
       },
-      error: (err) => console.error('Migros API hatası:', err)
+      error: (err) => {
+        console.error('Migros API hatası:', err);
+        this.hasError = true;
+      },
+      complete: () => {
+        this.isLoading = false;
+      }
     });
   }
 

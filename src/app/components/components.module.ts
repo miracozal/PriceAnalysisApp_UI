@@ -19,6 +19,8 @@ import { A101MarketComponent } from './a101-market/a101-market.component';
 import { BimMarketComponent } from './bim-market/bim-market.component';
 import { MigrosMarketComponent } from './migros-market/migros-market.component';
 import { AdsenseComponent } from './adsense/adsense.component';
+import { MigrosUrunAraComponent } from './migros-urun-ara/migros-urun-ara.component';
+import { TrendyolProductsComponent } from './trendyol-products/trendyol-products.component';
 
 @NgModule({
     imports: [
@@ -42,7 +44,9 @@ import { AdsenseComponent } from './adsense/adsense.component';
         A101MarketComponent,
         BimMarketComponent,
         MigrosMarketComponent,
-        AdsenseComponent
+        AdsenseComponent,
+        MigrosUrunAraComponent,
+        TrendyolProductsComponent
     ],
     entryComponents: [NgbdModalContent],
     exports: [

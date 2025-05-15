@@ -10,14 +10,27 @@ import { environment } from '../../../../src/environments/environment';
 export class A101MarketComponent implements OnInit {
   images: string[] = [];
   currentIndex: number = 0;
+  isLoading = false;
+  hasError = false;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     const url = `${environment.apiUrl}/WebReader/GetProductsFromA101/get-a101`;
-    this.http.get<string[]>(url).subscribe({
-      next: (res) => this.images = res,
-      error: (err) => console.error('A101 API hatası:', err)
+
+    this.http.get<any[]>(url).subscribe({
+      next: (res) => {
+        this.images = res.map(item => item.ImageUrl);
+        this.hasError = false;
+      },
+      error: (err) => {
+        console.error('A101 API hatası:', err);
+        this.hasError = true;
+      },
+      complete: () => {
+        this.isLoading = false;
+      }
     });
   }
 

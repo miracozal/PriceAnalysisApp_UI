@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../src/environments/environment';
 
 @Component({
-  selector: 'app-sok-market',
-  templateUrl: './sok-market.component.html',
-  styleUrls: ['./sok-market.component.scss']
+  selector: 'app-trendyol-products',
+  templateUrl: './trendyol-products.component.html',
+  styleUrls: ['./trendyol-products.component.scss']
 })
-export class SokMarketComponent implements OnInit {
+export class TrendyolProductsComponent implements OnInit {
   allProducts: any[] = [];
   pagedProducts: any[] = [];
   currentPage = 1;
@@ -19,7 +19,7 @@ export class SokMarketComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    const url = `${environment.apiUrl}/WebReader/GetProductsFromSok/get-sok`;
+    const url = `${environment.apiUrl}/WebReader/GetTrendyolProducts/get-trendyol-products`;
 
     this.http.get<any[]>(url).subscribe({
       next: (res) => {
@@ -28,7 +28,7 @@ export class SokMarketComponent implements OnInit {
         this.hasError = false;
       },
       error: (err) => {
-        console.error('Şok API hatası:', err);
+        console.error('Trendyol API hatası:', err);
         this.hasError = true;
       },
       complete: () => {

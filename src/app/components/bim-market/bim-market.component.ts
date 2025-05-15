@@ -16,9 +16,12 @@ export class BimMarketComponent implements OnInit {
   currentPage: number = 1;
   pageSize: number = 9;
 
+  loading: boolean = true; 
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.loading = true;
     const url = `${environment.apiUrl}/WebReader/GetAllProductInfoBim/get-bim`;
     this.http.get<{ [key: string]: any[] }>(url).subscribe({
       next: (res) => {
@@ -27,8 +30,12 @@ export class BimMarketComponent implements OnInit {
         if (this.dates.length > 0) {
           this.selectDate(this.dates[0]);
         }
+        this.loading = false;
       },
-      error: (err) => console.error('BİM API hatası:', err)
+      error: (err) => {
+        console.error('BİM API hatası:', err);
+        this.loading = false;
+      }
     });
   }
 

@@ -1,7 +1,14 @@
 <div class="bim-wrapper">
-    <div class="container py-5 text-white">
-      <h2 class="text-center mb-4">BİM Market Ürünleri</h2>
-  
+  <!-- <div class="container py-5 text-white">
+    <h2 class="text-center mb-4">BİM Market Ürünleri</h2>
+
+    <div *ngIf="loading" class="text-center my-5">
+      <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+    </div>
+
+    <div *ngIf="!loading">
       <ul class="nav nav-tabs justify-content-center mb-4 border-0">
         <li class="nav-item" *ngFor="let date of dates">
           <button
@@ -12,39 +19,40 @@
           </button>
         </li>
       </ul>
-  
+
       <div *ngIf="pagedProducts.length > 0">
         <div class="row">
           <div *ngFor="let product of pagedProducts" class="col-md-4 mb-4">
             <div class="card h-100 shadow">
               <div class="card-body text-dark">
-                <h5 class="card-title">{{ product['Ürün'] }}</h5>
-                <p class="card-text"><strong>Marka:</strong> {{ product['Marka'] }}</p>
-                <p class="card-text"><strong>Gramaj:</strong> {{ product['Gramaj'] }}</p>
-                <p class="card-text text-success"><strong>Fiyat:</strong> {{ product['Fiyat'] }}</p>
+                <h5 class="card-title">{{ product['Name'] }}</h5>
+                <p class="card-text"><strong>Marka:</strong> {{ product['Name'] }}</p>
+                <p class="card-text"><strong>Gramaj:</strong> {{ product['AdditionalInfo'] }}</p>
+                <p class="card-text text-success"><strong>Fiyat:</strong> {{ product['Price'] }}</p>
               </div>
             </div>
           </div>
         </div>
-  
+
         <nav *ngIf="totalPages > 1" class="pagination-wrapper">
-            <ul class="pagination justify-content-center">
-              <li class="page-item" [class.disabled]="currentPage === 1">
-                <button class="page-link" (click)="setPage(currentPage - 1)">‹</button>
-              </li>
-              <li *ngFor="let page of pages" class="page-item" [class.active]="page === currentPage">
-                <button class="page-link" (click)="setPage(page)">{{ page }}</button>
-              </li>
-              <li class="page-item" [class.disabled]="currentPage === totalPages">
-                <button class="page-link" (click)="setPage(currentPage + 1)">›</button>
-              </li>
-            </ul>
-          </nav>
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <button class="page-link" (click)="setPage(currentPage - 1)">‹</button>
+            </li>
+            <li *ngFor="let page of pages" class="page-item" [class.active]="page === currentPage">
+              <button class="page-link" (click)="setPage(page)">{{ page }}</button>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <button class="page-link" (click)="setPage(currentPage + 1)">›</button>
+            </li>
+          </ul>
+        </nav>
       </div>
-  
+
       <div *ngIf="pagedProducts.length === 0" class="text-center mt-4">
         Bu tarihe ait ürün bulunamadı.
       </div>
     </div>
-  </div>
-  
+  </div> -->
+  <p  style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;">Bu alan geçici olarak devredışıdır</p>
+</div>

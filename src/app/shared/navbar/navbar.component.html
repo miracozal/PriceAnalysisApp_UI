@@ -48,8 +48,14 @@
                     <a href="https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local" target="_blank" class="nav-link">Have an issue</a>
                 </li> -->
                 <li class="nav-item">
-                    <a routerLink="/migros-market" class="nav-link" style="text-transform: none;">Migros</a>
-                </li>
+                                    <div ngbDropdown class="d-inline-block dropdown">
+                                        <a class="nav-link" id="dropdownBasic1" style="text-transform: none;" ngbDropdownToggle>Migros</a>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary">
+                                            <a class="dropdown-item" routerLink="/migros-market" style="text-transform: none;">Kampanyalı Ürünler</a>
+                                            <a class="dropdown-item" routerLink="/migros-urun-ara" style="text-transform: none;">Ürün Ara</a>
+                                        </div>
+                                    </div>
+                                </li>
                 <li class="nav-item">
                     <a routerLink="/sok-market" class="nav-link" style="text-transform: none;">Şok</a>
                 </li>
@@ -58,6 +64,9 @@
                 </li>
                 <li class="nav-item">
                     <a routerLink="/bim-market" class="nav-link" style="text-transform: none;">Bim</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/trendyol" class="nav-link" style="text-transform: none;">Trendyol</a>
                 </li>
             </ul>
         </div>
