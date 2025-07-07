@@ -14,6 +14,7 @@ import { BimMarketComponent } from './components/bim-market/bim-market.component
 import { MigrosMarketComponent } from './components/migros-market/migros-market.component';
 import { MigrosUrunAraComponent } from './components/migros-urun-ara/migros-urun-ara.component';
 import { TrendyolProductsComponent } from './components/trendyol-products/trendyol-products.component';
+import { SearchProductComponent } from './components/search-product/search-product.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,8 +28,8 @@ const routes: Routes =[
     {path: 'bim-market',        component: BimMarketComponent},
     {path: 'migros-market',     component: MigrosMarketComponent},
     {path: 'migros-urun-ara',     component: MigrosUrunAraComponent},
-        {path: 'trendyol',     component: TrendyolProductsComponent},
-
+    {path: 'trendyol',     component: TrendyolProductsComponent},
+    {path: 'search-product',     component: SearchProductComponent},
   ];
 
 @NgModule({
@@ -36,7 +37,7 @@ const routes: Routes =[
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes,{
-      useHash: true
+      useHash: false
     })
   ],
   exports: [

@@ -25,6 +25,8 @@ export class BimMarketComponent implements OnInit {
     const url = `${environment.apiUrl}/WebReader/GetAllProductInfoBim/get-bim`;
     this.http.get<{ [key: string]: any[] }>(url).subscribe({
       next: (res) => {
+    console.log(res)
+
         this.allData = res;
         this.dates = Object.keys(res);
         if (this.dates.length > 0) {
@@ -63,6 +65,33 @@ export class BimMarketComponent implements OnInit {
   }
 
   get pages(): number[] {
-    return Array(this.totalPages).fill(0).map((_, i) => i + 1);
+  const total = this.totalPages;
+  const current = this.currentPage;
+  const delta = 2;
+
+  const range: number[] = [];
+  const rangeWithDots: (number | string)[] = [];
+  let l: number;
+
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= current - delta && i <= current + delta)) {
+      range.push(i);
+    }
   }
+
+  for (let i of range) {
+    if (l) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1);
+      } else if (i - l > 2) {
+        rangeWithDots.push('...');
+      }
+    }
+    rangeWithDots.push(i);
+    l = i;
+  }
+
+  return rangeWithDots as number[];
+}
+
 }

@@ -21,6 +21,7 @@ import { MigrosMarketComponent } from './migros-market/migros-market.component';
 import { AdsenseComponent } from './adsense/adsense.component';
 import { MigrosUrunAraComponent } from './migros-urun-ara/migros-urun-ara.component';
 import { TrendyolProductsComponent } from './trendyol-products/trendyol-products.component';
+import { SearchProductComponent } from './search-product/search-product.component';
 
 @NgModule({
     imports: [
@@ -46,7 +47,8 @@ import { TrendyolProductsComponent } from './trendyol-products/trendyol-products
         MigrosMarketComponent,
         AdsenseComponent,
         MigrosUrunAraComponent,
-        TrendyolProductsComponent
+        TrendyolProductsComponent,
+        SearchProductComponent
     ],
     entryComponents: [NgbdModalContent],
     exports: [
